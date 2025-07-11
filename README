@@ -1,0 +1,123 @@
+1. 🧮 Min Heap (Priority Queue)
+Purpose:
+Efficiently retrieve the next upcoming hearing from all scheduled hearings.
+
+Use Case in System:
+
+Maintains hearings sorted by date/time.
+
+When the system needs to display or suggest the next case, the extractMin() function gives the earliest one.
+
+js
+Copy
+Edit
+hearingHeap.insert({ title, date: new Date(date) });
+let next = hearingHeap.extractMin(); // Gets the next hearing
+DSA Type: Binary Heap
+Time Complexity:
+
+Insert: O(log n)
+
+Extract Min: O(log n)
+
+2. 🧾 Hash Map (Judge Availability)
+Purpose:
+Track availability of judges and prevent scheduling conflicts.
+
+Use Case in System:
+
+Maintains a mapping of judge names to scheduled date-times.
+
+Prevents assigning the same judge to overlapping hearings.
+
+js
+Copy
+Edit
+addJudgeAvailability("Judge Judy", "2025-07-15T10:00");
+isJudgeAvailable("Judge Judy", "2025-07-15T10:00"); // false if already booked
+DSA Type: Hash Map (Map in JavaScript)
+Time Complexity: O(1) for insert and lookup
+
+3. 🔍 Trie (Prefix Tree)
+Purpose:
+Enable fast, real-time search suggestions or matches for case titles.
+
+Use Case in System:
+
+On hearing creation, case titles are inserted into the Trie.
+
+During search (in list view), users can type partial titles and get matches using search() or startsWith().
+
+js
+Copy
+Edit
+caseTitleTrie.insert("State vs John");
+caseTitleTrie.search("sta"); // returns true
+DSA Type: Trie
+Time Complexity:
+
+Insert: O(k)
+
+Search: O(k) (where k = length of string)
+
+4. 🔗 Graph (Adjacency List)
+Purpose:
+Model dependencies or relationships between cases.
+
+Use Case in System:
+
+Cases with shared resources (e.g., same courtroom or legal issue) can be linked.
+
+Visualize or report chains of connected cases.
+
+js
+Copy
+Edit
+caseDependencyGraph.addEdge("Case101", "Case102");
+caseDependencyGraph.getConnections("Case101"); // returns linked cases
+DSA Type: Graph (Adjacency List)
+Time Complexity:
+
+Add Edge: O(1)
+
+Lookup Neighbors: O(k), where k is the number of adjacent nodes
+
+🛠️ How to Use
+Open the HTML file in any browser.
+
+Add hearings, judges, and reports as usual.
+
+The DSA logic runs under the hood to:
+
+Sort hearings by date
+
+Avoid scheduling conflicts
+
+Power the case title search
+
+Analyze case dependencies
+
+📂 File Structure
+bash
+Copy
+Edit
+/court-calendar-system
+│
+├── index.html              # Main UI
+├── style1.css              # Stylesheet
+├── README.md               # This file
+🧠 Why DSA in UI?
+Using DSA directly in the frontend JS:
+
+Increases responsiveness
+
+Keeps logic modular and reusable
+
+Mimics backend intelligence even in static/demo projects
+
+✨ Future Enhancements
+Use Segment Trees for time-range conflict resolution.
+
+Integrate Dijkstra's algorithm to optimize judge assignment based on workload (graph weights).
+
+Store data in localStorage or IndexedDB for persistence
